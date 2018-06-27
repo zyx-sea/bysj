@@ -1,0 +1,138 @@
+{% load static %}
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="http://www.xiaozhu.com/favicon.ico" type="image/vnd.microsoft.icon">
+    <link rel="icon" href="http://www.xiaozhu.com/favicon.ico" type="image/vnd.microsoft.icon">
+    <title>美食搜索聚点页</title>
+    <meta content="no-transform " http-equiv="Cache-Control">
+    <meta content="format=html5; url=http://m.xiaozhu.com/" http-equiv="mobile-agent">
+    <link href="{% static 'css/xzcss.css' %}" rel="stylesheet">
+    <style type="text/css">
+        #allmap {
+            width: 100%;
+            height: 958px;
+        }
+
+        p {
+            margin-left: 5px;
+            font-size: 14px;
+        }
+    </style>
+    <!-- [if ite IE 8]>
+    <script src="../js/respond.js"></script>
+    <![endif]-->
+    <script type="text/javascript"
+            src="http://api.map.baidu.com/api?v=2.0&ak=vSH20Q2aiyiEH5Gz8GgbSH1tfvwDD6CH"></script>
+{#    <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>#}
+    <script src="{% static 'js/jquery.js' %}"></script>
+{#    <script type="text/javascript"#}
+{#            src="http://api.map.baidu.com/library/TextIconOverlay/1.2/src/TextIconOverlay_min.js"></script>#}
+    <script src="{% static 'js/TextIconOverlay_min.js' %}"></script>
+{#    <script type="text/javascript"#}
+{#            src="http://api.map.baidu.com/library/MarkerClusterer/1.2/src/MarkerClusterer_min.js"></script>#}
+    <script type="text/javascript" src="{% static 'js/MarkerClusterer.js' %}"></script>
+
+</head>
+
+<body>
+<!--header-->
+<div class="head_wrapper">
+    <a href="http://127.0.0.1:8000" class="logo_m">
+        <img src="{% static 'img/header.png' %}"  width="220px" height="58px" /></a>
+    <ul class="nav_R nav_commen">
+        <li><a href="http://127.0.0.1:8000/cluster" class="btn_free show-register-box"
+               id="Pub_Btn" target="_blank">聚点化展示</a></li>
+    </ul>
+</div>
+<!--[if lte IE 7]>
+<div style="background:#f16b80;  width:100%; height:50px; line-height:50px; text-align:center; font-size:14px; color:#fff; font-family:"微软雅黑";>
+    温馨提示：您目前的浏览器版本过低，网站部分功能无法正常使用，建议尽快升级：
+        <a href="http://www.microsoft.com/china/windows/IE/upgrade/index.aspx" name="升级ie浏览器" id="upgrade_ie" target="_blank" style=" display:inline-block;width:154px; height:40px;  vertical-align:middle;  margin:0 18px 0 12px;_margin-top:4px;"><img src="/images/ie.jpg" width="154" height="40"/></a>
+             或安装
+        <a href="http://www.firefox.com.cn" target="_blank" name="升级火狐浏览器" id="upgrade_firefox" style="display:inline-block;width:154px; height:40px;  vertical-align:middle;  margin:0 18px 0 12px;_margin-top:4px;"><img src="/images/firefox.jpg" width="154" height="40"/></a>
+</div>
+<![endif]-->
+<!--/header-->
+<div class="city_wrap">
+    <!--city top-->
+    <div class="city_top_box clearfix" id="list_filter">
+    </div>
+    <!--/city top-->
+    <div class="top_line" style="display: block;"></div>
+    <div class="clearfix">
+        <div class="list_map" style="height: 724px;padding-left: 50px;padding-right: 50px;">
+            <div class="map-canvas">
+                <div id="allmap"></div>
+                <p></p>
+            </div>
+        </div>
+        <!--map-->
+        <div class="city_map">
+        </div>
+        <!--/map-->
+
+    </div>
+</div>
+<div class="mask" style="display:none;"></div>
+<div id="addFavoritePop" style="display:none;"></div>
+<!-- Google Tag Manager -->
+
+<noscript>
+    &lt;iframe src="//www.googletagmanager.com/ns.html?id=GTM-W85X4L" height="0" width="0"
+    style="display:none;visibility:hidden"&gt;&lt;/iframe&gt;
+</noscript>
+
+<script>
+    (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+        var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-W85X4L');
+</script>
+</body>
+</html>
+<script type="text/javascript">
+    // 百度地图API功能
+    map = new BMap.Map("allmap");
+    map.centerAndZoom(new BMap.Point(115.9854900000, 36.4570200000), 10);//13是地图缩放级别，数字越大， 搜索的范围越大.
+    map.enableScrollWheelZoom();   //启用滚轮放大缩小，默认禁用
+    map.enableContinuousZoom();    //启用地图惯性拖拽，默认禁用
+    var messages ={{ messages|safe}};//safe 过滤器
+    var data_info = messages;
+    var opts = {
+        width: 250,     // 信息窗口宽度
+        height: 100,     // 信息窗口高度
+        title: "商铺信息：", // 信息窗口标题
+        enableMessage: true//设置允许信息窗发送短息
+    };
+    {#    var zoomCtrl = new BMap.ZoomControl({anchor: BMAP_ANCHOR_BOTTOM_RIGHT, offset: new BMap.Size(20, 20)});#}
+    {#    map.addControl(zoomCtrl);#}
+    var markers = [];
+    var markerClusterer = null;
+    for (var i = 0; i < data_info.length; i++) {
+        var marker = new BMap.Marker(new BMap.Point(data_info[i][0], data_info[i][1]));  // 创建标注
+        var content = data_info[i][2] + "  地址：" + data_info[i][3] + "  网址：" + data_info[i][4];
+        map.addOverlay(marker);               // 将标注添加到地图中
+        addClickHandler(content, marker);
+        markers.push(marker);
+    }
+    function addClickHandler(content, marker) {
+        marker.addEventListener("click", function (e) {
+                openInfo(content, e)
+            }
+        );
+    }
+    function openInfo(content, e) {
+        var p = e.target;
+        var point = new BMap.Point(p.getPosition().lng, p.getPosition().lat);
+        var infoWindow = new BMap.InfoWindow(content, opts);  // 创建信息窗口对象
+        map.openInfoWindow(infoWindow, point); //开启信息窗口
+    }
+    //最简单的用法，生成一个marker数组，然后调用markerClusterer类即可。
+    markerClusterer = new BMapLib.MarkerClusterer(map, {markers: markers});
+</script>

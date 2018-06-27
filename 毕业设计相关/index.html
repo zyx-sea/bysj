@@ -1,0 +1,344 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="shortcut icon" href="http://www.xiaozhu.com/favicon.ico" type="image/vnd.microsoft.icon">
+<link rel="icon" href="http://www.xiaozhu.com/favicon.ico" type="image/vnd.microsoft.icon">
+<title>美食搜索主页</title>
+<meta content="no-transform " http-equiv="Cache-Control">
+<meta content="format=html5; url=http://m.xiaozhu.com/" http-equiv="mobile-agent">
+<link href="./static/css/xzcss.css" rel="stylesheet"> 
+<style type="text/css">
+		#allmap{width:100%;height:658px;<!-- margin-top:290px; -->}
+		p{margin-left:25px; font-size:14px;}
+	</style>
+<!-- [if ite IE 8]>
+    <script src="../js/respond.js"></script>
+    <![endif]-->
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=vSH20Q2aiyiEH5Gz8GgbSH1tfvwDD6CH"></script>
+<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+<script async="" src="file://www.googletagmanager.com/gtm.js?id=GTM-W85X4L"></script>
+<style id="style-1-cropbar-clipper">
+/* Copyright 2014 Evernote Corporation. All rights reserved. */ 
+.en-markup-crop-options {
+	top: 18px !important;
+	left: 50% !important;
+	margin-left: -100px !important;
+	width: 200px !important;
+	border: 2px rgba(255,255,255,.38) solid !important;
+	border-radius: 4px !important;
+}
+.en-markup-crop-options div div:first-of-type {
+	margin-left: 0px !important;
+}
+</style>
+</head>
+
+<body>
+<!--header--> 
+
+<!--[if lte IE 7]>
+<div style="background:#f16b80;  width:100%; height:50px; line-height:50px; text-align:center; font-size:14px; color:#fff; font-family:"微软雅黑";>
+    温馨提示：您目前的浏览器版本过低，网站部分功能无法正常使用，建议尽快升级：
+        <a href="http://www.microsoft.com/china/windows/IE/upgrade/index.aspx" name="升级ie浏览器" id="upgrade_ie" target="_blank" style=" display:inline-block;width:154px; height:40px;  vertical-align:middle;  margin:0 18px 0 12px;_margin-top:4px;"><img src="/images/ie.jpg" width="154" height="40"/></a>
+             或安装
+        <a href="http://www.firefox.com.cn" target="_blank" name="升级火狐浏览器" id="upgrade_firefox" style="display:inline-block;width:154px; height:40px;  vertical-align:middle;  margin:0 18px 0 12px;_margin-top:4px;"><img src="/images/firefox.jpg" width="154" height="40"/></a>
+</div>
+<![endif]-->
+<div class="head_wrapper"> </div>
+<!--/header-->
+<div class="city_wrap"> 
+  <!--city top-->
+  <div class="city_top_box clearfix" id="list_filter">
+    <div class="city_r">
+      <div class="type_bg clearfix">
+        <h6 class="type_tit">价格</h6>
+        <!--进度条 -->
+        <div class="bar_box">
+          <div id="price-slider" class="move_div ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" aria-disabled="false">
+            <div class="line_all"></div>
+            <div class="ui-slider-range ui-widget-header ui-corner-all" style="left:0%; width:100%;"></div>
+            <div class="ui-slider-range ui-widget-header ui-corner-all" style="left: 0%; width: 100%;"></div>
+            <a class="ui-slider-handle ui-state-default ui-corner-all" href="http://liaocheng.xiaozhu.com/search-duanzufang-0/#" style="left: 0%;"></a><a class="ui-slider-handle ui-state-default ui-corner-all" href="http://liaocheng.xiaozhu.com/search-duanzufang-0/#" style="left: 100%;"></a></div>
+        </div>
+        <!--/进度条-->
+        
+        <div class="price_text" id="keyword-price"> 不限 </div>
+      </div>
+      <input type="hidden" id="no_price" value="http://liaocheng.xiaozhu.com/search-duanzufang-0/">
+      <div class="type_bg clearfix" id="space_list">
+        <div class="type_tit">位置</div>
+        <ul class="position_tab clearfix">
+          <li class="list_li" id="xingzhengquS">东昌府区<i></i></li>
+          <li class="list_li" id="xingzhengquS">茌平县<i></i></li>
+          <li class="list_li" id="xingzhengquS">临清市<i></i></li>
+          <li class="list_li" id="xingzhengquS">阳谷县<i></i></li>
+          <li class="list_li" id="xingzhengquS">莘县<i></i></li>
+          <li class="list_li" id="xingzhengquS">东阿县<i></i></li>
+          <li class="list_li" id="xingzhengquS">冠县<i></i></li>
+          <li class="list_li" id="xingzhengquS">高唐县<i></i></li>
+          <li class="list_li" id="xingzhengquS">开发区<i></i></li>
+          <div class="position_box" id="xingzhengquS_box">
+            <div class="line_box" id="xingzhengquS_first" style="display: none;"> <span keywordvalue="dongchangfu" keywordtype="district"><a href="http://liaocheng.xiaozhu.com/dongchangfu-duanzufang-8/" id="area_937">东昌府</a></span> </div>
+          </div>
+        </ul>
+      </div>
+      <!-- <div class="type_bg clearfix">
+        <h6 class="type_tit2">人数</h6>
+        <div class="info_box" id="housetyperoomcnt" style="height: 80px;">
+          <label>
+            <input class="checkbox" type="checkbox" id="yiju" value="yiju" onclick="submit_by_attr();">
+            单人 </label>
+          <label>
+            <input class="checkbox" type="checkbox" value="liangju" onclick="submit_by_attr();">
+            双人 </label>
+          <label>
+            <input class="checkbox" type="checkbox" value="sanju" onclick="submit_by_attr()">
+            3~4人 </label>
+          <label>
+            <input class="checkbox " type="checkbox" value="siju" onclick="submit_by_attr()">
+            5~6人 </label>
+          <label>
+            <input class="checkbox" type="checkbox" value="sijuyishang" onclick="submit_by_attr()">
+            7~8人 </label>
+          <label>
+            <input class="checkbox" type="checkbox" value="sijuyishang" onclick="submit_by_attr()">
+            10人以上 </label>
+          <label>
+            <input class="checkbox" type="checkbox" value="sijuyishang" onclick="submit_by_attr()">
+            其他 </label>
+        </div>
+      </div>
+       --><div class="type_bg clearfix">
+        <h6 class="type_tit2">分类</h6>
+        <div class="info_box" id="facilities">
+          <label class="">
+            <input type="checkbox" name="amenities" onclick="submit_by_attr()" value="facility_Shower">
+            自助餐</label>
+          <label class="">
+            <input type="checkbox" name="amenities" onclick="submit_by_attr()" value="facility_AirCondition">
+            甜点饮品</label>
+          <label class="">
+            <input type="checkbox" name="amenities" onclick="submit_by_attr()" value="facility_Tv">
+            小吃快餐</label>
+          <label class="">
+            <input type="checkbox" name="amenities" onclick="submit_by_attr()" value="facility_Netword">
+            火锅</label>
+          <label class="">
+            <input type="checkbox" name="amenities" onclick="submit_by_attr()" value="facility_Kitchen">
+            面条</label>
+          <label class="">
+            <input type="checkbox" name="amenities" onclick="submit_by_attr()" value="facility_Heater">
+            海鲜</label>
+          <label class="">
+            <input type="checkbox" name="amenities" onclick="submit_by_attr()" value="facility_Privatetoilet">
+            烧烤</label>
+          <label class="">
+            <input type="checkbox" name="amenities" onclick="submit_by_attr()" value="facility_Privatetoilet">
+            鲁菜</label>
+          <label class="">
+            <input type="checkbox" name="amenities" onclick="submit_by_attr()" value="facility_Privatetoilet">
+            地方菜</label>
+          <label class="">
+            <input type="checkbox" name="amenities" onclick="submit_by_attr()" value="facility_Privatetoilet">
+            日韩料理</label>
+          <label class="">
+            <input type="checkbox" name="amenities" onclick="submit_by_attr()" value="facility_Privatetoilet">
+            西餐</label>
+          <label class="">
+            <input type="checkbox" name="amenities" onclick="submit_by_attr()" value="facility_Privatetoilet">
+            其他</label>			
+        </div>
+      </div>
+      <input type="hidden" class="btn_pink4search" id="filter_confirm" value="确定">
+    </div>
+  </div>
+  <!--/city top-->
+  <div class="top_line" style="display: block;"></div>
+  <div class="tj_box clearfix" style="top: 0px; display: none;">
+    <div class="select_up" id="select_more" style="display: none;">展开筛选条件</div>
+  </div>
+  <div class="clearfix"> 
+    <!--map-->
+    <div class="city_map">
+      <div class="list_map" style="height: 724px;">
+        <div class="map-canvas"> 
+			<div id="allmap"></div>
+			<p>点击标注点，可查看由纯文本构成的简单型信息窗口</p>
+		</div>
+      </div>
+    </div>
+    <!--/map--> 
+    <!--search list-->
+    <div class="search_box">
+      <div class="result_box clearfix">
+        <div class="fr" id="checkfra"> <span class="col_pink pr20" id="defalut_sort"><a href="javascript:void(0);" onlick="return false;">推荐排序</a></span> <span class="pr20" id="haoping_sort"><a title="好评排序" href="http://liaocheng.xiaozhu.com/zuihaoping-duanzufang-10/">好评排序</a></span> <span id="nodefalut_sort"><a title="点击按价格由低到高排序" href="http://liaocheng.xiaozhu.com/zuipianyi-duanzufang-10/">价格<span class="arrow_top"></span><span class="arrow_down"></span></a></span> </div>
+      </div>
+      <!--pic list-->
+      <div id="page_list">
+        <ul class="pic_list clearfix">
+          <li lodgeunitid="lodgeunit_25852507603" latlng="36.45341,116.032306"> <a target="_blank" href="http://liaocheng.xiaozhu.com/fangzi/25852507603.html" class="resule_img_a"> <img class="lodgeunitpic" title="聊城市开发区中心繁华地段" data-growing-title="25852507603" src="http://p0.meituan.net/600.600/deal/__45555800__6886792.jpg@1304w_1304h_1e_1c" lazy_src="finish" alt="聊城市开发区中心繁华地段" style="height: 199px;"> </a>
+            <div class="favorite  lodge_25852507603 wsc_ico" al="25852507603" title="收藏"></div>
+            <div class="result_btm_con lodgeunitname" detailurl="http://liaocheng.xiaozhu.com/fangzi/25852507603.html" style="cursor:pointer"> <span class="result_price">人均¥<i>57</i></span>
+              <div class="result_intro"> <a><span class="result_title hiddenTxt">牧羊花火锅餐厅（汇金街店）</span></a> <em class="hiddenTxt">东昌府区北关街与振兴路交叉口东南角（兴华大酒店北临丽水名都临街楼）<span class="commenthref"> - 1条点评 </span> </em>
+                <p> <span class="changzu_ico" title="评分"></span></p>
+              </div>
+            </div>
+          </li>
+          <li lodgeunitid="lodgeunit_25852507603" latlng="36.45341,116.032306"> <a target="_blank" href="http://liaocheng.xiaozhu.com/fangzi/25852507603.html" class="resule_img_a"> <img class="lodgeunitpic" title="聊城市开发区中心繁华地段" data-growing-title="25852507603" src="http://p0.meituan.net/600.600/deal/347bd068c56c4290753b3fbe8d3c4ac2135753.jpg@1304w_1304h_1e_1c" lazy_src="finish" alt="聊城市开发区中心繁华地段" style="height: 199px;"> </a>
+            <div class="favorite  lodge_25852507603 wsc_ico" al="25852507603" title="收藏"></div>
+            <div class="result_btm_con lodgeunitname" detailurl="http://liaocheng.xiaozhu.com/fangzi/25852507603.html" style="cursor:pointer"> <span class="result_price">人均¥<i>52</i></span>
+              <div class="result_intro"> <a><span class="result_title hiddenTxt">圆缘园时尚茶餐厅</span></a> <em class="hiddenTxt">东昌府区东昌路金鼎购物中心1楼东南角<span class="commenthref"> - 1条点评 </span> </em>
+                <p> <span class="changzu_ico" title="评分"></span></p>
+              </div>
+            </div>
+          </li>
+          <li lodgeunitid="lodgeunit_25852507603" latlng="36.45341,116.032306"> <a target="_blank" href="http://liaocheng.xiaozhu.com/fangzi/25852507603.html" class="resule_img_a"> <img class="lodgeunitpic" title="聊城市开发区中心繁华地段" data-growing-title="25852507603" src="http://p1.meituan.net/600.600/deal/762cb762592150b7f658404e4ff3a4e244564.jpg@1304w_1304h_1e_1c" lazy_src="finish" alt="聊城市开发区中心繁华地段" style="height: 199px;"> </a>
+            <div class="favorite  lodge_25852507603 wsc_ico" al="25852507603" title="收藏"></div>
+            <div class="result_btm_con lodgeunitname" detailurl="http://liaocheng.xiaozhu.com/fangzi/25852507603.html" style="cursor:pointer"> <span class="result_price">人均¥<i>20</i></span>
+              <div class="result_intro"> <a><span class="result_title hiddenTxt">萨公主披萨屋</span></a> <em class="hiddenTxt">京都购物广场新政路京都购物广场北对过（幼儿园西临）<span class="commenthref"> - 1条点评 </span> </em>
+                <p> <span class="changzu_ico" title="评分"></span></p>
+              </div>
+            </div>
+          </li>
+          <li lodgeunitid="lodgeunit_25852507603" latlng="36.45341,116.032306"> <a target="_blank" href="http://liaocheng.xiaozhu.com/fangzi/25852507603.html" class="resule_img_a"> <img class="lodgeunitpic" title="聊城市开发区中心繁华地段" data-growing-title="25852507603" src="./static/__45555800__6886792.jpg@1304w_1304h_1e_1c" lazy_src="finish" alt="聊城市开发区中心繁华地段" style="height: 199px;"> </a>
+            <div class="favorite  lodge_25852507603 wsc_ico" al="25852507603" title="收藏"></div>
+            <div class="result_btm_con lodgeunitname" detailurl="http://liaocheng.xiaozhu.com/fangzi/25852507603.html" style="cursor:pointer"> <span class="result_price">人均¥<i>18</i></span>
+              <div class="result_intro"> <a><span class="result_title hiddenTxt">简记老北京果木烤鸭</span></a> <em class="hiddenTxt">东昌府区兴华西路九龙宫大酒店向西50米路南<span class="commenthref"> - 1条点评 </span> </em>
+                <p> <span class="changzu_ico" title="评分"></span></p>
+              </div>
+            </div>
+          </li>
+          <li lodgeunitid="lodgeunit_28516863103" latlng="36.479364,115.960024"> <a target="_blank" href="http://liaocheng.xiaozhu.com/fangzi/28516863103.html" class="resule_img_a"> <img class="lodgeunitpic" title="水城雅居日租公寓" data-growing-title="28516863103" src="./static/13,0,70,12342,1440,1080,8bf2c0e7.jpg" lazy_src="finish" alt="水城雅居日租公寓" style="height: 199px;"> </a>
+            <div class="favorite  lodge_28516863103 wsc_ico" al="28516863103" title="收藏"></div>
+            <div class="result_btm_con lodgeunitname" detailurl="http://liaocheng.xiaozhu.com/fangzi/28516863103.html" style="cursor:pointer"> <span class="result_price">¥<i>128</i></span> <span class="result_img"> <a class="=&quot;search_result_gridsum&quot;" href="http://www.xiaozhu.com/fangdong/22914234101/" target="_blank"><img class="landlordimage" width="42" height="42" lazy_src="finish" src="file:///E:/ditu/%E8%81%8A%E5%9F%8E%E7%9F%AD%E7%A7%9F%E6%88%BF_%E8%81%8A%E5%9F%8E%E6%97%A5%E7%A7%9F%E6%88%BF_%E8%81%8A%E5%9F%8E%E9%85%92%E5%BA%97%E5%BC%8F%E5%85%AC%E5%AF%93-%E5%B0%8F%E7%8C%AA_files/12,0,85,6680,260,260,b6ca611f.jpg"></a> </span>
+              <div class="result_intro"> <a><span class="result_title hiddenTxt">水城雅居日租公寓</span></a> <em class="hiddenTxt"> 整套出租/2张床/宜住4人 <span class="commenthref"> - 0条点评 </span> </em>
+                <p> <span class="mianyajin_ico" title="免押金：小猪在线担保、无需支付押金"></span> &nbsp; </p>
+              </div>
+            </div>
+          </li>
+          <div class="mapresult_no" id="noLodgeUnitsAtNYN" style="display:none"> <em></em>
+            <p> <span>没有符合条件的房间</span> 建议您减少或更改一些查询条件重新搜索 </p>
+          </div>
+        </ul>
+        <div class="pagination_v2 pb0_vou"><span class="active_link">1</span><a target="_self" href="http://liaocheng.xiaozhu.com/search-duanzufang-p2-0/">2</a><a class="font_st" target="_self" href="http://liaocheng.xiaozhu.com/search-duanzufang-p2-0/">&gt;</a></div>
+        <div class="list_adpic" style="background-color:#02AC8D;"> <a href="http://www.xiaozhu.com/appdownload/fk?ca_source=xzliebiaoye&amp;utm_source=lbyrk&amp;utm_medium=lbyrkgg&amp;pk_campaign=APP-xzlbyrk-marketing" target="_blank" style="cursor:auto"><img lazy_src="/images/search_adpic1.png"></a> </div>
+      </div>
+      <div class="result_foot clearfix">
+        <dl class="link_dl">
+        </dl>
+        <div class="foot_btm">许可证号：京ICP证140510号 &nbsp;&nbsp; <a href="http://www.anquan.org/s/www.xiaozhu.com" |="" name="mt8SMvYyRDI92b06nuDs8dPFapllCJYidqhM1WlOoGRZ9DWpbo" rel="nofollow" target="_blank">安全联盟</a> &nbsp;&nbsp;北京快跑信息科技有限公司<span style="display:none"> &nbsp;&nbsp;地址：北京市海淀区知春路56号 &nbsp;&nbsp;电话：010-62961978</span></div>
+        <div style="width:300px;margin:0 auto;"> <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802020380" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="./static/record_icon.png" style="float:left;">
+          <p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:#bdc3c7;">京公网安备 11010802020380号</p>
+          </a> </div>
+      </div>
+    </div>
+    <!--search list--> 
+  </div>
+  <input type="hidden" id="pageNo" value="1">
+  <input type="hidden" id="totalPages" value="2">
+  <input type="hidden" id="total" value="33">
+  <input type="hidden" id="fullTextTNo" value="1">
+  <input type="hidden" id="hasFullText" value="0">
+  <input type="hidden" id="selectcitydomain" value="liaocheng">
+  <input type="hidden" id="landmark4map" value="">
+  <input type="hidden" id="putkey" value="">
+  <input type="hidden" id="keywordcache" value="">
+  <input type="hidden" id="subway" value="">
+  <input type="hidden" id="cityid" value="309">
+  <input type="hidden" id="city" value="聊城">
+  <input type="hidden" id="lowprice" value="0">
+  <input type="hidden" id="highprice" value="0">
+  <input type="hidden" id="landmarklat" value="">
+  <input type="hidden" id="landmarklng" value="">
+  <input type="hidden" id="tmpstartdate" value="">
+  <input type="hidden" id="tmpenddate" value="">
+  <input type="hidden" id="housetyperoomcnt" value="">
+  <input type="hidden" id="leasetype" value="">
+  <input type="hidden" id="district" value="">
+  <input type="hidden" id="facility" value="">
+  <input type="hidden" id="housetype" value="">
+  <input type="hidden" id="guestnum" value="">
+  <input type="hidden" id="sort" value="">
+  <input type="hidden" id="dSelCondtions" value="">
+  <input type="hidden" id="actionname" value="Front_Search">
+  <input type="hidden" id="searchkey" value="">
+  <input type="hidden" id="landmarkid" value="">
+  <input type="hidden" id="log_landmark_type">
+  <input type="hidden" id="searchcity" value="聊城">
+  <input type="hidden" id="citydomain" value="liaocheng">
+  <strong defineurl="http://liaocheng.xiaozhu.com/pricefrom-pricetoyuan-duanzufang-1/" id="userDefinePrice"></strong>
+  <input type="hidden" id="clearKeyWord" value="http://liaocheng.xiaozhu.com/search-duanzufang-0/">
+  <input type="hidden" id="nowUrl" value="http://liaocheng.xiaozhu.com/search-duanzufang-0/">
+  <input type="hidden" id="areaPinyin" value="">
+  <input type="hidden" id="partner" value="">
+  <input type="hidden" id="mapcheck" value="0">
+  <input type="hidden" id="mapzoom" value="">
+  <input type="hidden" id="mapPageNo" value="0">
+  <input type="hidden" id="mapAction" value="0">
+  <input type="hidden" id="mapScrolTop" value="201">
+  <input type="hidden" id="mapHeightFinish" value="1">
+  <input type="hidden" id="scrollTopVal" value="0">
+  <input type="hidden" id="radius" value="5">
+  <input type="hidden" id="mapSelectNone" value="0">
+  <input type="hidden" id="hadSelCondtionsCount" value="0">
+  <input type="hidden" id="defaultCityShowStr" value="城市或目的地">
+  <input type="hidden" name="suggestion_citydomain" id="suggestion_citydomain" value="">
+  <input type="hidden" name="searchkey" id="searchkey" value="">
+  <input type="hidden" name="landmarkid" id="landmarkid" value="">
+  <input type="hidden" name="landmarktype" id="landmarktype" value="">
+  <input type="hidden" name="defaulturl" id="defaulturl" value="">
+  <input type="hidden" id="nationId" value="0">
+  <input type="hidden" id="timezone" value="">
+  <input type="hidden" id="maxPrice" value="198">
+  <input type="hidden" id="myLowPrice" value="0">
+  <input type="hidden" id="myHighPrice" value="0">
+  <input type="hidden" id="myLowRate" value="0">
+  <input type="hidden" id="myHighRate" value="0">
+  <input type="hidden" id="totalNum" value="29">
+</div>
+<div class="mask" style="display:none;"></div>
+<div id="addFavoritePop" style="display:none;"></div>
+<!-- Google Tag Manager -->
+
+<noscript>
+&lt;iframe src="//www.googletagmanager.com/ns.html?id=GTM-W85X4L" height="0" width="0" style="display:none;visibility:hidden"&gt;&lt;/iframe&gt;
+</noscript>
+
+<script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-W85X4L');
+</script>
+</body>
+</html>
+<script type="text/javascript">
+	// 百度地图API功能	
+	map = new BMap.Map("allmap");
+	map.centerAndZoom(new BMap.Point(116.417854,39.921988), 15);
+	var data_info = [[116.417854,39.921988,"地址：北京市东城区王府井大街88号乐天银泰百货八层"],
+					 [116.406605,39.921585,"地址：北京市东城区东华门大街"],
+					 [116.412222,39.912345,"地址：北京市东城区正义路甲5号"]
+					];
+	var opts = {
+				width : 250,     // 信息窗口宽度
+				height: 80,     // 信息窗口高度
+				title : "信息窗口" , // 信息窗口标题
+				enableMessage:true//设置允许信息窗发送短息
+			   };
+	for(var i=0;i<data_info.length;i++){
+		var marker = new BMap.Marker(new BMap.Point(data_info[i][0],data_info[i][1]));  // 创建标注
+		var content = data_info[i][2];
+		map.addOverlay(marker);               // 将标注添加到地图中
+		addClickHandler(content,marker);
+	}
+	function addClickHandler(content,marker){
+		marker.addEventListener("click",function(e){
+			openInfo(content,e)}
+		);
+	}
+	function openInfo(content,e){
+		var p = e.target;
+		var point = new BMap.Point(p.getPosition().lng, p.getPosition().lat);
+		var infoWindow = new BMap.InfoWindow(content,opts);  // 创建信息窗口对象 
+		map.openInfoWindow(infoWindow,point); //开启信息窗口
+	}
+</script>
