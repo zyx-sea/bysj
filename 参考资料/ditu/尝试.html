@@ -1,0 +1,98 @@
+﻿<html>
+<head>
+<meta name="viewport"
+    content="width=device-width, 
+                                     initial-scale=1.0, 
+                                     maximum-scale=1.0, 
+                                     user-scalable=no">
+<script type="text/javascript"
+    src="http://api.map.baidu.com/api?v=2.0&ak=vSH20Q2aiyiEH5Gz8GgbSH1tfvwDD6CH"></script>
+<script type="text/javascript"
+    src="<c:url value='/scripts/boostrap/jquery.min.js'/>"></script>
+<script type="text/javascript"
+    src="<c:url value='/scripts/layer/layer.js'/>"></script>
+<link rel="stylesheet" type="text/css" media="all"
+    href="/styles/layer/layer.css" />
+<title>标注事项地点</title>
+
+<style type="text/css">
+body, html, #allmap {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    margin: 0;
+    font-family: "微软雅黑";
+}
+</style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div id="allmap"></div>
+    </div>
+</body>
+
+
+</html>
+<script type="text/javascript">
+$(function(){
+    // 百度地图API功能
+    var map = new BMap.Map("allmap"); // 创建Map实例
+    map.centerAndZoom(new BMap.Point(119.847604, 31.274829), 17); // 初始化地图,设置中心点坐标和地图级别
+    //添加地图类型控件
+    map.addControl(new BMap.MapTypeControl({
+        mapTypes : [ BMAP_NORMAL_MAP, BMAP_HYBRID_MAP ]
+    }));
+    map.setCurrentCity("宜兴"); // 设置地图显示的城市 此项是必须设置的
+    map.enableScrollWheelZoom(true); //开启鼠标滚轮缩放 
+    createMakers(map);
+
+
+});
+
+function createMakers(map){
+    $.ajax({
+        type:"post",
+        url:"/bpm/bmfw/makers",
+        success:function(makers){
+            for(var i in makers){
+                var point = new BMap.Point(makers[i].pointX, makers[i].pointY);
+                map.centerAndZoom(point, 17);
+                var marker = new BMap.Marker(point);  // 创建标记
+                map.addOverlay(marker);
+                createTag(marker,makers[i]);
+            }
+        },
+        error:function(){
+            alert("获取事项标注失败");
+        }
+    });
+}
+
+function createTag(marker,m){
+
+    //标注
+    var text = "<p>许可证号：" + m.bjh + "</p><p>申请人/单位：" + m.sqr
+            + "</p><p>许可事项：" + m.sx + "</p><p>现场照片:<a href='http://www.baidu.com'>点击查看</p>";
+
+    /* var label = new BMap.Label(text, {
+        offset : new BMap.Size(-85, -120)
+    });
+    //设置label(标注的样式)
+    label.setStyle({
+        color : "black",
+        fontSize : "12px",
+        height : "110px",
+        //lineHeight : "20px",
+        fontFamily : "微软雅黑",
+        maxWidth : "none",
+        border : "none",display:"none"
+    });
+    marker.setLabel(label); */
+
+    //给标记添加点击事件以及显示窗口信息
+     var infoWindow = new BMap.InfoWindow("<p style='font-size:14px;'>" + text + "</p>");
+     marker.addEventListener("click", function () { this.openInfoWindow(infoWindow); });
+}
+</script>

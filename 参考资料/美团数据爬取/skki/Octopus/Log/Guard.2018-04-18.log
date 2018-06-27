@@ -1,0 +1,39 @@
+
+ [00:03:11]: Init notify guard timer.
+ [00:03:11]: Guard started
+ [00:03:11]: Guard listening
+ [00:03:11]: Watch new application process: 16372, execute path: E:\美团数据\skki\Octopus\Octopus.TaskReviewer.exe.
+ [00:03:11]: Process pushed
+ [00:03:11]: Guard timing
+ [00:03:12]: Application process [16372] start successfully, stop watching.
+ [00:03:19]: Process [16372] notify guard timer finished.
+ [00:07:44]: Init notify guard timer.
+ [00:07:44]: Guard started
+ [00:07:44]: Guard listening
+ [00:07:44]: Watch new application process: 11056, execute path: E:\美团数据\skki\Octopus\Octopus.TaskReviewer.exe.
+ [00:07:44]: Process pushed
+ [00:07:44]: Guard timing
+ [00:07:45]: Application process [11056] start successfully, stop watching.
+ [00:07:52]: Process [11056] notify guard timer finished.
+ [00:10:31]: Init notify guard timer.
+ [00:10:31]: Guard started
+ [00:10:31]: Guard listening
+ [00:10:31]: Watch new application process: 3008, execute path: E:\美团数据\skki\Octopus\Octopus.TaskReviewer.exe.
+ [00:10:31]: Process pushed
+ [00:10:31]: Guard timing
+ [00:10:31]: Application process [3008] start successfully, stop watching.
+ [00:10:39]: Process [3008] notify guard timer finished.
+ [00:15:09]: Init notify guard timer.
+ [00:15:09]: Guard started
+ [00:15:09]: Guard listening
+ [00:15:09]: Watch new application process: 912, execute path: E:\美团数据\skki\Octopus\Octopus.TaskReviewer.exe.
+ [00:15:09]: Process pushed
+ [00:15:09]: Guard timing
+ [00:15:10]: Application process [912] start successfully, stop watching.
+ [00:15:17]: Process [912] notify guard timer finished.
+ [21:44:11]: Init notify guard timer.
+ [21:44:11]:  
+ 未将对象引用设置到对象的实例。 
+    在 Octopus.Guard.GlobalCache.Log(String message)
+   在 Octopus.Guard.Program.Main(String[] args)
+ [21:44:14]: Process [6048] notify guard timer finished.

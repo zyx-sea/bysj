@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DataExportPluginConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>OfficialExport2DB</Name>
+  <DisplayName>导出到数据库</DisplayName>
+  <Assambly>Octopus.Plugin.OfficialExport2DB</Assambly>
+  <ManualExporter>Octopus.Plugin.OfficialExport2DB.ExportToDatabaseManualPlugin</ManualExporter>
+  <AutoExporter>Octopus.Plugin.OfficialExport2DB.ExportToDatabaseAutoPlugin</AutoExporter>
+</DataExportPluginConfig>

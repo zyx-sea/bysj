@@ -1,0 +1,30 @@
+00:15:15 track failed, reason: entrance is not in range of defined words, check the menu book, data: {"type":9,"data":{"CollectWay":1,"TaskId":"678df783-f947-2372-1fbb-6b580f736bb1","entrance":"simple_start_v2","userId":"0d41c299-91d4-4af2-a76d-9969de92ce1d","instantClientVersion":"7.3.4","trackTime":"2018-04-18T00:15:14.8603418+08:00","success":true,"failureType":1,"timeSpend":0}} 
+22:14:01 System.Threading.ThreadAbortException: 正在中止线程。
+   在 Octopus.API.SDK.TokenData.get_Expires()
+   在 Octopus.SDK.TokenManager.GetToken(String userName, String password)
+   在 Octopus.ClientUtil.AccountApi.<>c__DisplayClass3_0.<>c__DisplayClass10_0() 
+22:14:01 System.Threading.ThreadAbortException: 正在中止线程。
+   在 System.Net.UnsafeNclNativeMethods.WinHttp.WinHttpGetIEProxyConfigForCurrentUser(WINHTTP_CURRENT_USER_IE_PROXY_CONFIG& proxyConfig)
+   在 System.Net.WinHttpWebProxyBuilder.BuildInternal()
+   在 System.Net.WebProxyDataBuilder.Build()
+   在 System.Net.AutoWebProxyScriptEngine.GetWebProxyData()
+   在 System.Net.AutoWebProxyScriptEngine.RegistryChanged()
+   在 System.Net.AutoWebProxyScriptEngine.CheckForChanges(Int32& syncStatus)
+   在 System.Net.AutoWebProxyScriptEngine.GetProxies(Uri destination, IList`1& proxyList, Int32& syncStatus)
+   在 System.Net.WebProxy.GetProxiesAuto(Uri destination, Int32& syncStatus)
+   在 System.Net.ProxyScriptChain.GetNextProxy(Uri& proxy)
+   在 System.Net.ProxyChain.ProxyEnumerator.MoveNext()
+   在 System.Net.ServicePointManager.FindServicePoint(Uri address, IWebProxy proxy, ProxyChain& chain, HttpAbortDelegate& abortDelegate, Int32& abortState)
+   在 System.Net.HttpWebRequest.FindServicePoint(Boolean forceFind)
+   在 System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   在 System.Net.HttpWebRequest.GetRequestStream()
+   在 Octopus.API.SDK.HttpHelper.PostForToken(String url, Dictionary`2 paramsDic)
+   在 Octopus.API.SDK.Token.GetToken(String username, String password, String client_id, String client_secret)
+   在 Octopus.SDK.TokenManager.GetToken(String userName, String password)
+   在 Octopus.ClientUtil.AccountApi.<>c__DisplayClass3_0.<>c__DisplayClass10_0() 
+22:14:02 System.Threading.ThreadAbortException: 正在中止线程。
+   在 Octopus.ClientUtil.AccountApi.<>c__DisplayClass3_0.<>c__DisplayClass10_0()
+   在 Octopus.Common.Async.<Start>b__20_0() 
+22:14:02 System.Threading.ThreadAbortException: 正在中止线程。
+   在 Octopus.ClientUtil.AccountApi.<>c__DisplayClass3_0.<>c__DisplayClass10_0()
+   在 Octopus.Common.Async.<Start>b__20_0() 

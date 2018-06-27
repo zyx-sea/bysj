@@ -1,0 +1,9 @@
+
+ [23:20:13]: Init notify guard timer.
+ [23:20:13]: Guard started
+ [23:20:13]: Guard listening
+ [23:20:13]: Watch new application process: 13828, execute path: E:\美团数据\skki\Octopus\Octopus.Client.exe.
+ [23:20:13]: Process pushed
+ [23:20:13]: Guard timing
+ [23:20:14]: Application process [13828] start successfully, stop watching.
+ [23:20:21]: Process [13828] notify guard timer finished.

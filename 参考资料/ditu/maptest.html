@@ -1,0 +1,50 @@
+<!DOCTYPE html>  
+<html>
+    <head>  
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />  
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  
+        <title>Hello, World</title>  
+        <link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+        <style type="text/css">  
+            <!-- html{height:100%} -->  
+            <!-- body{height:100%;margin:0px;padding:0px;display: flex;justify-content: center;align-items: center;} -->  
+            #container{
+                height:500px;
+				width:400px;
+                <!-- border: 10px inset darkgoldenrod; -->
+            }
+        </style>  
+        <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=vSH20Q2aiyiEH5Gz8GgbSH1tfvwDD6CH">
+            //v2.0版本的引用方式：src="http://api.map.baidu.com/api?v=2.0&ak=	vSH20Q2aiyiEH5Gz8GgbSH1tfvwDD6CH"
+        </script>
+    </head>  
+     
+    <body>  
+        <div id="container" class="container"></div> 
+        <script type="text/javascript"> 
+            var map = new BMap.Map("container");
+            // 创建地图实例  
+            var point = new BMap.Point(108.188512, 31.23829);
+            // 创建点坐标  
+            map.centerAndZoom(point, 19);
+            // 初始化地图，设置中心点坐标和地图级别  
+            map.enableScrollWheelZoom(true);
+            // 滚动缩放
+//          var myStyleJson=[  
+//          {  
+//              "featureType": "road",  
+//              "elementType": "geometry.stroke",  
+//              "stylers": {  
+//                  "color": "#ff0000"  
+//              }  
+//          }];
+//          map.setMapStyle({styleJson: myStyleJson }); 
+            //风格
+            map.addEventListener("click", function(e){    
+                var lat = e.point.lat;
+                var lng = e.point.lng;
+                console.log('东经'+lng, '北纬'+lat);
+            });
+        </script>  
+    </body>  
+</html>

@@ -1,0 +1,41 @@
+
+ [18:31:39]: Init notify guard timer.
+ [18:31:39]: Init notify guard timer.
+ [18:31:41]: Guard started
+ [18:31:41]: Guard started
+ [18:31:41]: Guard listening
+ [18:31:41]: Watch new application process: 9424, execute path: E:\美团数据\skki\Octopus\Octopus.Client.exe.
+ [18:31:41]: Process pushed
+ [18:31:41]: Guard timing
+ [18:31:41]: Guard init error 
+ 创建 IPC 端口失败: 拒绝访问。
+ 
+    在 System.Runtime.Remoting.Channels.Ipc.IpcServerChannel.StartListening(Object data)
+   在 Octopus.Guard.Common.IPCServer.CreateOneChannel(String channelName)
+   在 Octopus.Guard.Common.IPCServer.InitialChannel(String channelName, Dictionary`2 parameters, Object data)
+   在 Octopus.Guard.Common.IPCServerWrapper.StartListeningMessage(String channelName, EventHandler`1 hanlder)
+   在 Octopus.Guard.Program.Main(String[] args)
+ [18:31:42]: Refresh process [9424] watching time.
+ [18:31:44]: Refresh process [9424] watching time.
+ [18:31:45]: Application process [9424] start successfully, stop watching.
+ [18:31:46]: Application process [4824] start successfully, stop watching.
+ [18:31:48]: Process [9424] notify guard timer finished.
+ [18:31:48]: Process [4824] notify guard timer finished.
+ [18:31:49]: Init notify guard timer.
+ [18:31:52]: Guard started
+ [18:31:52]: Guard listening
+ [18:31:52]: Watch new application process: 8736, execute path: E:\美团数据\skki\Octopus\Octopus.Client.exe.
+ [18:31:52]: Process pushed
+ [18:31:52]: Guard timing
+ [18:31:53]: Refresh process [8736] watching time.
+ [18:31:55]: Refresh process [8736] watching time.
+ [18:31:56]: Application process [8736] start successfully, stop watching.
+ [18:31:59]: Process [8736] notify guard timer finished.
+ [18:54:17]: Init notify guard timer.
+ [18:54:18]: Guard started
+ [18:54:18]: Guard listening
+ [18:54:18]: Watch new application process: 12972, execute path: E:\美团数据\skki\Octopus\Octopus.TaskReviewer.exe.
+ [18:54:18]: Process pushed
+ [18:54:18]: Guard timing
+ [18:54:18]: Application process [12972] start successfully, stop watching.
+ [18:54:25]: Process [12972] notify guard timer finished.

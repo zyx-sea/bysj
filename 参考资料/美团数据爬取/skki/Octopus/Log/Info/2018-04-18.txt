@@ -1,0 +1,41 @@
+00:03:22 Start Navigate to http://www.dianping.com/shoplist/search/8_10_0_score 
+00:03:26 Current status code is 200 
+00:07:49 Start Navigate to http://www.dianping.com/shoplist/search/8_10_0_score 
+00:07:54 Current status code is 200 
+00:10:36 Start Navigate to http://www.dianping.com/shoplist/search/8_10_0_score 
+00:10:38 Current status code is 200 
+00:15:14 Start Navigate to http://lc.meituan.com/ 
+00:15:24 Current status code is 200 
+00:15:30 Current status code is 200 
+00:16:16 Current status code is -1 
+00:16:34 Current status code is -1 
+00:16:52 Current status code is -1 
+00:17:09 Current status code is -1 
+00:17:27 Current status code is -1 
+00:17:45 Current status code is -1 
+00:18:03 Current status code is -1 
+00:18:21 Current status code is -1 
+00:18:40 Current status code is -1 
+00:18:58 Current status code is -1 
+00:19:16 Current status code is -1 
+00:19:35 Current status code is -1 
+00:19:53 Current status code is -1 
+00:20:12 Current status code is -1 
+00:20:31 Current status code is -1 
+00:20:49 Current status code is -1 
+00:21:09 Current status code is -1 
+00:21:28 Current status code is -1 
+00:21:47 Current status code is -1 
+00:22:06 Current status code is -1 
+00:22:25 Current status code is -1 
+00:22:45 Current status code is -1 
+00:23:04 Current status code is -1 
+00:23:24 Current status code is -1 
+00:23:43 Current status code is -1 
+00:24:03 Current status code is -1 
+00:24:23 Current status code is -1 
+00:24:43 Current status code is -1 
+00:25:03 Current status code is -1 
+00:25:23 Current status code is -1 
+00:25:43 Current status code is -1 
+22:14:03 GetUserCustomerServiceUrl cost time: 313 ms 
